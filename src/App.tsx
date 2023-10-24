@@ -1,5 +1,5 @@
 import "./App.css";
-import StarshipProvider from "./components/Context/StarshipProvider";
+import StarshipProvider from "./Context/StarshipProvider";
 import StarshipsList from "./components/StarshipsList";
 
 function App() {

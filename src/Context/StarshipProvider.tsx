@@ -3,6 +3,7 @@ import { StarshipContext } from "./StarshipContext";
 
 export default function StarshipProvider({ children }) {
   const [starships, setStarships] = useState([]);
+  const [selectedStarship, setSelectedStarship] = useState("");
 
   const fetchStarships = () => {
     fetch("https://swapi.dev/api/starships")
@@ -16,7 +17,7 @@ export default function StarshipProvider({ children }) {
   }, []);
 
   return (
-    <StarshipContext.Provider value={{ starships, fetchStarships }}>
+    <StarshipContext.Provider value={{ starships, fetchStarships, selectedStarship, setSelectedStarship }}>
       {children}
     </StarshipContext.Provider>
   );
