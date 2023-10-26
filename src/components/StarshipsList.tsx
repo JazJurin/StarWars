@@ -1,14 +1,11 @@
 import { StarshipContext } from "../Context/StarshipContext";
 import { useContext } from "react";
-import StarshipDetails from "./StarshipDetails";
 import galaxy2 from "../assets/images/galaxy2.jpeg";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
 
 export default function StarshipsList() {
   const {
-    selectedComponent,
-    setSelectedComponent,
     starships,
     selectedStarship,
     setSelectedStarship,
@@ -37,6 +34,8 @@ export default function StarshipsList() {
         <h1 className="text-1xl">Click in one starship for see more details</h1>
         <ul>
           {starships.map((starship, index) => {
+            const id = starship.url.split("/").slice(-2, -1)[0]; 
+            const imageUrl = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
             return (
               <>
                 <div>
@@ -47,11 +46,6 @@ export default function StarshipsList() {
                       to="/Details"
                     >
                       {starship.name}
-                      {selectedStarship === starship && (
-                        <div>
-                          <StarshipDetails />
-                        </div>
-                      )}
                     </Link>
                     <p>Model: {starship.model}</p>
                   </li>

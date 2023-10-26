@@ -8,7 +8,7 @@ export default function StarshipDetails() {
     <div className="card card-side bg-base-100 shadow-xl">
       <figure>
         <img
-          src="/images/stock/photo-1635805737707-575885ab0820.jpg"
+          src={selectedStarship.imageUrl}
           alt="Movie"
         />
       </figure>
