@@ -1,38 +1,59 @@
 import { StarshipContext } from "../Context/StarshipContext";
 import { useContext } from "react";
 import StarshipDetails from "./StarshipDetails";
+import galaxy2 from "../assets/images/galaxy2.jpeg";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.jpg";
 
 export default function StarshipsList() {
-  const { starships, selectedStarship, setSelectedStarship } =
-    useContext(StarshipContext);
+  const {
+    selectedComponent,
+    setSelectedComponent,
+    starships,
+    selectedStarship,
+    setSelectedStarship,
+    currentPage,
+    setCurrentPage,
+  } = useContext(StarshipContext);
 
   const handleStarshipClick = (starship: any) => {
     setSelectedStarship(selectedStarship === starship ? null : starship);
   };
 
   return (
-    <>
-      <div className="items-start m-10">
-        <div className="tabs">
-          <a className="tab tab-bordered">HOME</a>
-          <a className="tab tab-bordered">STARSHIPS</a>
+    <div>
+      <img src={logo} className="w-72 rounded-xl mx-auto my-auto m-8" />
+      <div style={{ backgroundImage: `url(${galaxy2})` }}>
+        <div className="flex items-center justify-center m-10">
+          <Link to="/" className="tab tab-bordered">
+            HOME
+          </Link>
+
+          <Link to="/Starships" className="tab tab-bordered tab-active">
+            STARSHIPS
+          </Link>
         </div>
-        <h1 className="5xl">LISTADO DE NAVES</h1>
+        <div></div>
+        <h1 className="text-1xl">Click in one starship for see more details</h1>
         <ul>
-          {starships.map((starship: any) => {
+          {starships.map((starship, index) => {
             return (
               <>
                 <div>
-                  <li key={starship.name}>
-                    <button onClick={() => handleStarshipClick(starship)}>
+                  <li key={index}>
+                    <Link
+                      className="text-2xl"
+                      onClick={() => handleStarshipClick(starship)}
+                      to="/Details"
+                    >
                       {starship.name}
-                    </button>
-                    <p>{starship.model}</p>
-                    {selectedStarship === starship && (
-                      <div>
-                        <StarshipDetails />
-                      </div>
-                    )}
+                      {selectedStarship === starship && (
+                        <div>
+                          <StarshipDetails />
+                        </div>
+                      )}
+                    </Link>
+                    <p>Model: {starship.model}</p>
                   </li>
                 </div>
               </>
@@ -40,9 +61,14 @@ export default function StarshipsList() {
           })}
         </ul>
         <div>
-          <button>View All</button>
+          <button
+            className="btn btn-s btn-outline m-4 bg-transparent"
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            View All
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

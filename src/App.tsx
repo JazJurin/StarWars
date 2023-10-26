@@ -1,13 +1,12 @@
 import "./App.css";
 import StarshipProvider from "./Context/StarshipProvider";
-import StarshipsList from "./components/StarshipsList";
+import Rutas from "./components/routes/Routes";
 
 function App() {
   return (
     <StarshipProvider>
       <div className="App">
-        <h1>Star Wars (Logo)</h1>
-        <StarshipsList />
+        <Rutas />
       </div>
     </StarshipProvider>
   );

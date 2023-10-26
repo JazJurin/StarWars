@@ -2,22 +2,44 @@ import { useEffect, useState } from "react";
 import { StarshipContext } from "./StarshipContext";
 
 export default function StarshipProvider({ children }) {
+  const [selectedComponent, setSelectedComponent] = useState("Home");
   const [starships, setStarships] = useState([]);
   const [selectedStarship, setSelectedStarship] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const fetchStarships = () => {
-    fetch("https://swapi.dev/api/starships")
+    if (loading === true) return;
+    setLoading(true);
+    fetch(`https://swapi.dev/api/starships/?page=${currentPage}`)
       .then(async (response) => response.json())
-      .then((data) => setStarships(data.results))
-      .catch((error) => console.error(error));
+      .then((data) => {
+        setStarships((prevStarships) => prevStarships.concat(data.results));
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
     fetchStarships();
-  }, []);
+  }, [currentPage]);
 
   return (
-    <StarshipContext.Provider value={{ starships, fetchStarships, selectedStarship, setSelectedStarship }}>
+    <StarshipContext.Provider
+      value={{
+        selectedComponent,
+        setSelectedComponent,
+        starships,
+        fetchStarships,
+        selectedStarship,
+        setSelectedStarship,
+        currentPage,
+        setCurrentPage,
+      }}
+    >
       {children}
     </StarshipContext.Provider>
   );
