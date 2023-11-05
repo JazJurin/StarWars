@@ -2,7 +2,7 @@ import { StarshipContext } from "../Context/StarshipContext";
 import { useContext } from "react";
 import galaxy2 from "../assets/images/galaxy2.jpeg";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.jpg";
+import NavBar from "./NavBar";
 
 export default function StarshipsList() {
   const {
@@ -19,7 +19,7 @@ export default function StarshipsList() {
 
   return (
     <div>
-      <img src={logo} className="w-72 rounded-xl mx-auto my-auto m-8" />
+      <NavBar />
       <div style={{ backgroundImage: `url(${galaxy2})` }}>
         <div className="flex items-center justify-center m-10">
           <Link to="/" className="tab tab-bordered">
@@ -33,9 +33,7 @@ export default function StarshipsList() {
         <div></div>
         <h1 className="text-1xl">Click in one starship for see more details</h1>
         <ul>
-          {starships.map((starship, index) => {
-            const id = starship.url.split("/").slice(-2, -1)[0]; 
-            const imageUrl = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
+          {starships.map((starship: any, index: any) => {
             return (
               <>
                 <div>
@@ -43,7 +41,7 @@ export default function StarshipsList() {
                     <Link
                       className="text-2xl"
                       onClick={() => handleStarshipClick(starship)}
-                      to="/Details"
+                      to={`/Details/${starship.url.split("/").slice(-2, -1)[0]}`}
                     >
                       {starship.name}
                     </Link>

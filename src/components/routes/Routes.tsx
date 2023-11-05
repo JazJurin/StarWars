@@ -9,7 +9,7 @@ export default function Rutas() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/Starships" element={<StarshipsList />} />
-        <Route path="/Details" element={<StarshipDetails />} />
+        <Route path="/Details/:starshipId" element={<StarshipDetails />} />
       </Routes>
     </BrowserRouter>
   );
