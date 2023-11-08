@@ -13,9 +13,14 @@ export default function Rutas() {
         <Route path="/" element={<Home />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/Starships" element={<StarshipsList />} />
-        </Route>
+        <Route
+          path="/Starships"
+          element={
+            <ProtectedRoute>
+              <StarshipsList />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/Details/:starshipId" element={<StarshipDetails />} />
       </Routes>
     </BrowserRouter>
