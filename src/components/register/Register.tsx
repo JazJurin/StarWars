@@ -39,9 +39,7 @@ export default function Register() {
       fetch("http://localhost:3000/users")
         .then((res) => res.json())
         .then((users) => {
-          const emailExists = users.some(
-            (user) => user.email === formData.email
-          );
+          const emailExists = users.some((user) => user.email === formData.email);
 
           if (emailExists) {
             setError({ email: "This email is already registered" });
@@ -101,15 +99,12 @@ export default function Register() {
             onChange={handleChange}
           />
           <div>
-            {error && (
-              <p className="text-red-500">
-                {error.firstName ||
-                  error.lastName ||
-                  error.email ||
-                  error.password}
-              </p>
-            )}
-          </div>
+  {error && (
+    <p className="text-red-500">
+      {error.firstName || error.lastName || error.email || error.password}
+    </p>
+  )}
+</div>
           <input
             className="w-full mb-4 rounded-md py-2 px-3 border bg-gray-200"
             type="text"
@@ -141,10 +136,7 @@ export default function Register() {
             Create Acount
           </button>
           <p className="text-center">
-            If you have account, Please{" "}
-            <Link to="/Login" className="text-black">
-              Login
-            </Link>{" "}
+            If you have account, Please <Link to="/Login" className="text-black">Login</Link>{" "}
           </p>
         </form>
       </div>

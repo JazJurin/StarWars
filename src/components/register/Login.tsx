@@ -4,19 +4,22 @@ import { StarshipContext } from "../../Context/StarshipContext";
 import NavBar from "../NavBar";
 
 export default function Login() {
-  const { login } = useContext(StarshipContext)
-  
+  const { setIsLoggedIn } = useContext(StarshipContext)
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  
+  function handleLogin() {
+    setIsLoggedIn(true);
+    navigate("/");
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -29,13 +32,12 @@ export default function Login() {
     })
     .then((data) => {
       console.log(data.user);
-      navigate("/");
+      handleLogin();
     })
     .catch((error) => {
       setError('Login failed. Please check your credentials.');
       console.error('Error:', error);
     });
-    login();
   }
 
   function handleChange(e) {

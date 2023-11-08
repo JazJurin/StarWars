@@ -27,7 +27,7 @@ export default function StarshipProvider({ children }) {
   const login = () => {
     setIsLoggedIn(true); 
   };
-
+  console.log("Usuario autentificado", isLoggedIn)
   useEffect(() => {
     fetchStarships();
   }, [currentPage]);
@@ -36,6 +36,7 @@ export default function StarshipProvider({ children }) {
     <StarshipContext.Provider
       value={{
         isLoggedIn,
+        setIsLoggedIn,
         login,
         selectedComponent,
         setSelectedComponent,
