@@ -8,8 +8,8 @@ export default function NavBar() {
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
+            width="1.5em"
+            height="1.5em"
             viewBox="0 0 24 24"
           >
             <path
@@ -21,8 +21,8 @@ export default function NavBar() {
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
+            width="1.5em"
+            height="1.5em"
             viewBox="0 0 24 24"
           >
             <path
@@ -34,8 +34,8 @@ export default function NavBar() {
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
+            width="1.5em"
+            height="1.5em"
             viewBox="0 0 24 24"
           >
             <path
@@ -47,8 +47,8 @@ export default function NavBar() {
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
+            width="1.5em"
+            height="1.5em"
             viewBox="0 0 24 24"
           >
             <path
@@ -60,8 +60,8 @@ export default function NavBar() {
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
+            width="1.5em"
+            height="1.5em"
             viewBox="0 0 16 16"
           >
             <path
@@ -79,16 +79,13 @@ export default function NavBar() {
           REGISTER
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            width="1.5em"
+            height="1.5em"
+            viewBox="0 0 256 256"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              fill="currentColor"
+              d="M254 136a6 6 0 0 1-6 6h-18v18a6 6 0 0 1-12 0v-18h-18a6 6 0 0 1 0-12h18v-18a6 6 0 0 1 12 0v18h18a6 6 0 0 1 6 6Zm-57.41 60.14a6 6 0 1 1-9.18 7.72C166.9 179.45 138.69 166 108 166s-58.89 13.45-79.41 37.86a6 6 0 0 1-9.18-7.72C35.14 177.41 55 164.48 77 158.25a66 66 0 1 1 62 0c22 6.23 41.86 19.16 57.59 37.89ZM108 154a54 54 0 1 0-54-54a54.06 54.06 0 0 0 54 54Z"
             />
           </svg>
         </Link>
@@ -97,8 +94,8 @@ export default function NavBar() {
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
+              width="1.5em"
+              height="1.5em"
               viewBox="0 0 24 24"
             >
               <path

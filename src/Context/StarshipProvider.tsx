@@ -7,6 +7,7 @@ export default function StarshipProvider({ children }) {
   const [selectedStarship, setSelectedStarship] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const fetchStarships = () => {
     if (loading === true) return;
@@ -23,6 +24,10 @@ export default function StarshipProvider({ children }) {
       });
   };
 
+  const login = () => {
+    setIsLoggedIn(true); 
+  };
+
   useEffect(() => {
     fetchStarships();
   }, [currentPage]);
@@ -30,6 +35,8 @@ export default function StarshipProvider({ children }) {
   return (
     <StarshipContext.Provider
       value={{
+        isLoggedIn,
+        login,
         selectedComponent,
         setSelectedComponent,
         starships,
