@@ -1,12 +1,12 @@
 import "./App.css";
 import StarshipProvider from "./Context/StarshipProvider";
-import Rutas from "./components/routes/Routes";
+import MyRoutes from "./components/routes/Routes";
 
 function App() {
   return (
     <StarshipProvider>
       <div className="App">
-        <Rutas />
+        <MyRoutes />
       </div>
     </StarshipProvider>
   );

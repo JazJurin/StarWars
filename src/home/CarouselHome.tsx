@@ -9,7 +9,7 @@ import film7 from "../assets/images/films/film7.jpg";
 export default function CarouselHome() {
   return (
     <div className="">
-      <div className="carousel w-full">
+      <div className="carousel w-full overscroll-none">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={film1} className="w-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

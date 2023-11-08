@@ -23,7 +23,7 @@ export interface Starship {
     films:                  string[];
     created:                Date;
     edited:                 Date;
-    url:                    string;
+    url: string;
 }
 
 // Converts JSON strings to/from your types
